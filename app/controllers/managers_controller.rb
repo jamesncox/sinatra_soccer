@@ -4,7 +4,7 @@ class ManagersController < ApplicationController
         if !logged_in?
           erb :"managers/signup"
         else 
-          redirect to '/#PLACEHOLDER' 
+          redirect to '/team_stats' 
         end 
       end 
     
@@ -13,9 +13,9 @@ class ManagersController < ApplicationController
           redirect to '/signup'
         else
           @manager = Manager.new(:username => params[:username], :email => params[:email], :password => params[:password])
-          @manger.save
+          @manager.save
           session[:manager_id] = @manager.id
-          redirect to '/#PLACEHOLDER'
+          redirect to '/team_stats'
         end 
       end
       
@@ -23,7 +23,7 @@ class ManagersController < ApplicationController
         if !logged_in?
           erb :'managers/login'
         else
-          redirect to '/#PLACEHOLDER'
+          redirect to '/team_stats'
         end
       end 
       
@@ -31,7 +31,7 @@ class ManagersController < ApplicationController
         @manager = Manager.find_by(username: params[:username])
         if @manager && @manager.authenticate(params[:password])
           session[:manager_id] = @manager.id 
-          redirect to '/#PLACEHOLDER'
+          redirect to '/team_stats'
         else 
           redirect to '/login'
         end 
