@@ -23,23 +23,23 @@ class ManagersController < ApplicationController
         if !logged_in?
           erb :'managers/login'
         else
-          redirect to '/tweets'
+          redirect to '/#PLACEHOLDER'
         end
       end 
       
       post '/login' do 
-        @user = User.find_by(username: params[:username])
-        if @user && @user.authenticate(params[:password])
-          session[:user_id] = @user.id 
-          redirect to '/tweets'
+        @manager = Manager.find_by(username: params[:username])
+        if @manager && @manager.authenticate(params[:password])
+          session[:manager_id] = @manager.id 
+          redirect to '/#PLACEHOLDER'
         else 
           redirect to '/login'
         end 
       end
       
-      get '/users/:slug' do 
-        @user = User.find_by_slug(params[:slug])
-        erb :"users/show"
+      get '/managers/:slug' do 
+        @manager = Manager.find_by_slug(params[:slug])
+        erb :"managers/show"
       end 
     
       get '/logout' do
