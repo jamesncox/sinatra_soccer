@@ -46,3 +46,9 @@ create_table :team_stats do |t|
     t.integer :total_goals
     t.intger :manager_id 
 end 
+
+TO DO:
+
+1. Build models and tables.
+2. Set up controller and views files.
+3. 
