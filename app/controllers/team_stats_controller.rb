@@ -1,0 +1,4 @@
+class TeamStatsController < ApplicationController
+    
+
+end 
