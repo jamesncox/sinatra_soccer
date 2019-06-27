@@ -52,6 +52,20 @@ class TeamStatsController < ApplicationController
           redirect to "/login" 
         end 
       end 
+
+      patch '/team_stats/:id' do 
+        if logged_in?
+          @team_stat = TeamStat.find_by_id(params[:id])
+          if params[:team_name] != "" 
+            @team_stat.update(team_name: params[:team_name], points: params[:points], goals_scored: params[:goals_scored])
+            erb :"team_stats/show_team_stats" 
+          else 
+            redirect to "/team_stats/#{@team_stat.id}/edit"  
+          end 
+        else 
+          redirect to '/login' 
+        end 
+      end 
       
 
 end 
