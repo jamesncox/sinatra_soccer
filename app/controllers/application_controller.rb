@@ -19,8 +19,8 @@ class ApplicationController < Sinatra::Base
       !!current_user
     end
     
-    def current_user 
-      @current_user ||= Manager.find_by_id(session[:manager_id]) if session[:manager_id]
+    def current_manager 
+      @current_manager ||= Manager.find_by_id(session[:manager_id]) if session[:manager_id]
     end 
     
   end 

@@ -1,3 +1,3 @@
-class TeamStats < ActiveRecord::Base 
+class TeamStat < ActiveRecord::Base 
     belongs_to :manager 
 end 

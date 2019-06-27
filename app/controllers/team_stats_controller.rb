@@ -1,7 +1,7 @@
 class TeamStatsController < ApplicationController
     get '/team_stats' do 
         if logged_in?
-         @team_stats = TeamStats.all
+         @team_stats = TeamStat.all
          erb :'team_stats/team_stats'
        else
          redirect to '/login'
@@ -19,13 +19,13 @@ class TeamStatsController < ApplicationController
       post '/team_stats' do
         if logged_in?
           if params[:team_name] != "" && 
-            @team_stat = TeamStats.new(content: params[:content])
-            @team_stat.manager = current_user
+            @team_stat = TeamStat.new(content: params[:content])
+            @team_stat.manager = current_manager
             @team_stat.save
             # binding.pry
             redirect to "/team_stats/#{@team_stat.id}"
           else
-            redirect to '/tweets/new'
+            redirect to '/team_stats/new'
           end 
         else 
           redirect to '/login' 
