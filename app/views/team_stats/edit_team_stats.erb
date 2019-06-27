@@ -1,0 +1,10 @@
+<h1>Edit Team Stats</h1>
+
+<form action="/team_stats/<%=@team_stat.id%>" method="post">
+  <label>Edit Team Stats</label>
+  <input type="hidden" name="_method" value="patch">
+  <input type="text" name="team name" value="<%=@team_stat.team_name%>">
+  <input type="number" name="points" value="<%=@team_stat.points%>">
+  <input type="number" name="team name" value="<%=@team_stat.goals_scored%>">
+  <input type="submit" value="submit">
+</form>
