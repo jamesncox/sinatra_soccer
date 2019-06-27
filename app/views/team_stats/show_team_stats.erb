@@ -1,4 +1,13 @@
+<h1>New Team Stats</h1>
 
-    <label>Team Name: </label><%= stats.team_name %><br/>
-    <label>Points: </label><%= stats.points %><br/>
-    <label>Goals Scored: </label><%= stats.goals_scored %>
+<label>Team Name: </label><%= @teamstat.team_name %><br/>
+<label>Points: </label><%= @teamstat.points %><br/>
+<label>Goals Scored: </label><%= @teamstat.goals_scored %>
+
+<form action="/tweets/<%=@teamstat.id%>/delete" method="post">
+  <label>Delete Stats</label>
+  <input type="hidden" name="_method" value="delete">
+  <input type="submit" value="Delete Stats">
+</form>
+
+<a href="/team_stats/<%=@teamstat.id%>/edit">Edit Stats</a>

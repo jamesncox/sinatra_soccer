@@ -33,8 +33,12 @@ class TeamStatsController < ApplicationController
       end 
 
       get '/team_stats/:id' do
-        
-        erb :"team_stats/show_team_stats" 
+        if logged_in?
+          @team_stat = TeamStat.find_by_id(params[:id])
+          erb :"team_stats/show_team_stats" 
+        else 
+          redirect to '/login'
+        end
       end 
       
 
