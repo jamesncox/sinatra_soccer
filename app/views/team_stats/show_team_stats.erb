@@ -4,7 +4,7 @@
 <label>Points: </label><%= @teamstat.points %><br/>
 <label>Goals Scored: </label><%= @teamstat.goals_scored %>
 
-<form action="/tweets/<%=@teamstat.id%>/delete" method="post">
+<form action="/team_stats/<%=@teamstat.id%>/delete" method="post">
   <label>Delete Stats</label>
   <input type="hidden" name="_method" value="delete">
   <input type="submit" value="Delete Stats">
