@@ -18,8 +18,8 @@ class TeamStatsController < ApplicationController
       
       post '/team_stats' do
         if logged_in?
-          if params[:team_name] != "" && 
-            @team_stat = TeamStat.new(content: params[:content])
+          if params[:team_name] != ""  
+            @team_stat = TeamStat.new(team_name: params[:team_name])
             @team_stat.manager = current_manager
             @team_stat.save
             # binding.pry
@@ -30,6 +30,11 @@ class TeamStatsController < ApplicationController
         else 
           redirect to '/login' 
         end
+      end 
+
+      get '/team_stats/:id' do
+        
+        erb :"team_stats/show_team_stats" 
       end 
       
 
