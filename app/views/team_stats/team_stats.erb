@@ -1,0 +1,7 @@
+<h1>Welcome, <%= current_user.username %> </h1>
+
+<% @team_stats.each do |stats| %>
+  <label>Team Name: </label><%= stats.team_name %>
+  <label>Points: </label><%= stats.points %>
+  <label>Goals Scored: </label><%= stats.goals_scored %>
+<% end %>
