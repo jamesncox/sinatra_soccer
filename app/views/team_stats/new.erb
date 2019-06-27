@@ -1,7 +1,5 @@
 <% if logged_in? %>
 
-<!- need to have form to create new team name, points and goals scored -!>
-
   <form action='/team_stats' method="post">
     Team Name:
     <input type="text" name="team name"><br>
@@ -14,6 +12,6 @@
 
   </form>
 
-  <% else %>
-      <h1> You must be logged in to update your team's stats </h1>
-  <% end %>
+<% else %>
+  <h1> You must be logged in to update your team's stats </h1>
+<% end %>
