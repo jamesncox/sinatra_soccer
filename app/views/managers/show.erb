@@ -1,4 +1,4 @@
-<h1>All Stats</h1>
+<h1><%= current_manager.username %>'s Team Stats</h1>
 
 <% if @manager.team_stats.length > 0 %>
     <% @manager.team_stats.each do |stats| %>
@@ -9,7 +9,8 @@
         <br>
     <% end %>
 <%else %>
-    <h1>You don't currently have any teams</h1>
+    <h3>You are not managing any teams currently.</h3>
+    <br>
     <a href="/team_stats/new">Create A Team</a>
 <% end %>
 

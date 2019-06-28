@@ -1,6 +1,6 @@
 <h1>Welcome, <%= current_manager.username %> </h1>
-<h3>All Teams Listings</h3>
-
+<h3>View everyone's teams, their current total points and goals scored.</h3>
+<br>
 <% @team_stats.each do |stats| %>
   <label>Manager: </label><%= stats.manager.username %><br/>
   <label>Team Name: </label><%= stats.team_name %><br/>
