@@ -43,11 +43,10 @@ class TeamStatsController < ApplicationController
       get '/team_stats/:id/edit' do
         if logged_in?
           @team_stat = TeamStat.find_by_id(params[:id])
-          # binding.pry
           if @team_stat && @team_stat.manager == current_manager 
             erb :"/team_stats/edit_team_stats"
           else 
-            redirect to "/team_stats"
+            redirect to "/managers/#{current_manager.slug}"
           end
         else 
           redirect to "/login" 
@@ -61,7 +60,7 @@ class TeamStatsController < ApplicationController
             @team_stat.update(team_name: params[:team_name], points: params[:points], goals_scored: params[:goals_scored])
             erb :"team_stats/show_team_stats" 
           else 
-            redirect to "/team_stats/#{@team_stat.id}/edit"  
+            redirect to "/managers/#{current_manager.slug}" 
           end 
         else 
           redirect to '/login' 

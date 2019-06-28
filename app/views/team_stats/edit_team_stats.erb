@@ -1,5 +1,7 @@
 <h1>Edit <%=@team_stat.team_name%></h1>
 
+<h3>Edit or delete your team.</h3><br>
+
 <form action="/team_stats/<%=@team_stat.id%>" method="post">
   <input type="hidden" name="_method" value="patch">
   <label>Team Name:</label>
@@ -9,4 +11,12 @@
   <label>Goals Scored:</label>
   <input type="number" name="goals_scored" value="<%=@team_stat.goals_scored%>"><br>
   <input type="submit" value="Edit Team">
+</form><br>
+
+<br>
+
+<form action="/team_stats/<%=@team_stat.id%>/delete" method="post">
+  <label>Delete <%=@team_stat.team_name%>?</label><br/>
+  <input type="hidden" name="_method" value="delete">
+  <input type="submit" value="Delete">
 </form>
