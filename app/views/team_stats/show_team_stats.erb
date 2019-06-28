@@ -1,13 +1,15 @@
 <h1>New Team Stats</h1>
 
+<h3>You can view, edit or delete your new team here.</h3><br/>
+
 <label>Team Name: </label><%= @team_stat.team_name %><br/>
 <label>Points: </label><%= @team_stat.points %><br/>
-<label>Goals Scored: </label><%= @team_stat.goals_scored %>
-
+<label>Goals Scored: </label><%= @team_stat.goals_scored %><br/>
+<br>
+<a href="/team_stats/<%=@team_stat.id%>/edit">Edit <%=@team_stat.team_name%></a><br/>
+<br>
 <form action="/team_stats/<%=@team_stat.id%>/delete" method="post">
-  <label>Delete Stats</label>
+  <label>Delete <%=@team_stat.team_name%>?</label><br/>
   <input type="hidden" name="_method" value="delete">
-  <input type="submit" value="Delete Stats">
+  <input type="submit" value="Delete">
 </form>
-
-<a href="/team_stats/<%=@team_stat.id%>/edit">Edit Stats</a>
