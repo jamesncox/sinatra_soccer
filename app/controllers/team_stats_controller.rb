@@ -59,6 +59,7 @@ class TeamStatsController < ApplicationController
           if params[:team_name] != "" 
             @team_stat.update(team_name: params[:team_name], points: params[:points], goals_scored: params[:goals_scored])
             erb :"team_stats/show_team_stats" 
+            redirect to "/managers/#{current_manager.slug}" 
           else 
             redirect to "/managers/#{current_manager.slug}" 
           end 
