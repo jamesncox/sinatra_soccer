@@ -67,6 +67,20 @@ class TeamStatsController < ApplicationController
           redirect to '/login' 
         end 
       end 
+
+      delete '/team_stats/:id/delete' do 
+        if logged_in?
+          @team_stat = TeamStat.find_by_id(params[:id])
+          if @team_stat && @team_stat.manager == current_manager
+            @team_stat.delete 
+            redirect to "/managers/#{current_manager.slug}" 
+          else
+            redirect to "/team_stats"
+          end
+        else 
+          redirect to 'login'
+        end
+      end 
       
 
 end 
