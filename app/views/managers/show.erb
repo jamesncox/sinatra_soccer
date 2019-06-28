@@ -1,10 +1,11 @@
 <h1><%= current_manager.username %>'s Team Stats</h1>
-
+<br>
 <% if @manager.team_stats.length > 0 %>
     <% @manager.team_stats.each do |stats| %>
         <label>Team Name: </label><%= stats.team_name %><br/>
         <label>Points: </label><%= stats.points %><br/>
-        <label>Goals Scored: </label><%= stats.goals_scored %>
+        <label>Goals Scored: </label><%= stats.goals_scored %><br/>
+        <a href="/team_stats/<%=stats.team_name%>/edit">Edit <%=stats.team_name%></a><br/>
         <br>
         <br>
     <% end %>
