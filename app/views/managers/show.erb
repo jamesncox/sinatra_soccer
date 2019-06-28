@@ -1,9 +1,13 @@
 <h1>All Stats</h1>
 
-<% @manager.team_stats.each do |stats| %>
-    <%binding.pry%>
-    <label>Team Name: </label><%= stats.team_name %><br/>
-    <label>Points: </label><%= stats.points %><br/>
-    <label>Goals Scored: </label><%= stats.goals_scored %>
+<% if @manager.team_stats.length > 0 %>
+    <% @manager.team_stats.each do |stats| %>
+        <label>Team Name: </label><%= stats.team_name %><br/>
+        <label>Points: </label><%= stats.points %><br/>
+        <label>Goals Scored: </label><%= stats.goals_scored %>
+    <% end %>
+<%else %>
+    <h1>You don't currently have any teams</h1>
+    <a href="/team_stats/new">Create A Team</a>
 <% end %>
 

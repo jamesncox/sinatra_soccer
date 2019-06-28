@@ -43,7 +43,8 @@ class TeamStatsController < ApplicationController
       get '/team_stats/:id/edit' do
         if logged_in?
           @team_stat = TeamStat.find_by_id(params[:id])
-          if @team_stat && @teamstat.manager == current_manager 
+          # binding.pry
+          if @team_stat && @team_stat.manager == current_manager 
             erb :"/team_stats/edit_team_stats"
           else 
             redirect to "/team_stats"

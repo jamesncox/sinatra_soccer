@@ -7,6 +7,7 @@ class Manager < ActiveRecord::Base
     end 
       
     def self.find_by_slug(slug)
+        binding.pry
         Manager.all.find{|manager| manager.slug == slug}
     end 
 
