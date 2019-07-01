@@ -1,6 +1,6 @@
 # Squad Goals
 
-This App lets a user manager his or her soccer teams and stats.
+This App lets a user manage his or her soccer teams and stats.
 
 ## Usage
 
